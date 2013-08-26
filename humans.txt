@@ -1,15 +1,16 @@
 ﻿/* TEAM */
 
+Brady Gaster Site: http://www.bradygaster.com 
+Twitter: @bradygaster Location: Seattle, WA USA 
 Mads Kristensen
-Site: http://madskristensen.net/
+ Site: http://madskristensen.net/
 Twitter: @mkristensen
-Location: Seattle, WA USA
+Location: Seattle, WA USA 
 
-Sayed Ibrahim Hashimi
+Sayed Ibrahim Hashimi 
 Site: http://sedodream.com/
 Twitter: @sayedihashimi
-Location: Seattle, WA USA     
-
-Supervisor Joost
+ Location: Seattle, WA USA 
+Supervisor Joost 
 Site: http://supervisorjoost.com/
-Location: Seattle, WA USA
+ Location: Seattle, WA USA
