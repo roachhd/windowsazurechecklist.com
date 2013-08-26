@@ -11,7 +11,7 @@
         Response.Cache.SetLastModifiedFromFileDependencies();
     }
 
-    string SiteName = Checklist.GetSiteName (Request);
+    string SiteName = Checklist.GetSiteName(Request);
     string DataName = Checklist.GetPageName(Request).Replace("/", " ").Replace("index", string.Empty);
     string Section = Checklist.GetBaseName(Request);
     string PageTitle = Checklist.GetPageTitle(Request);
@@ -26,22 +26,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes" />
     <link rel="stylesheet" href="@Fingerprint.Tag("/content/all.min.css")" />
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-    
-    <meta name="application-name" content="Web Dev Checklist" /> 
-    <meta name="msapplication-TileColor" content="#f7f7f7" /> 
+
+    <meta name="application-name" content="Web Dev Checklist" />
+    <meta name="msapplication-TileColor" content="#f7f7f7" />
     <meta name="msapplication-TileImage" content="/images/webdevchecklist.png" />
 
-    <meta name="twitter:title" content="@PageTitle" /> 
-    <meta name="twitter:description" content="The ultimate checklist for all serious web developers building modern websites." /> 
-    <meta name="twitter:image" content="http://webdevchecklist.com/images/webdevchecklist.png" /> 
+    <meta name="twitter:title" content="@PageTitle" />
+    <meta name="twitter:description" content="The ultimate checklist for all serious Windows Azure developers." />
 
-    <meta name="og:title" content="@PageTitle" /> 
-    <meta name="og:type" content="website" /> 
-    <meta name="og:url" content="@string.Format("http://webdevchecklist.com{0}", Request.RawUrl)" /> 
-    <meta name="og:image" content="http://webdevchecklist.com/images/webdevchecklist.png" /> 
-    
-    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/images/apple-touch-icon-114x114-precomposed.png" />  
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png" />   
+    <meta name="og:title" content="@PageTitle" />
+    <meta name="og:type" content="website" />
+    <meta name="og:url" content="@string.Format("http://windowsazurechecklist.com{0}", Request.RawUrl)" />
+    <meta name="og:image" content="http://windowsazurechecklist.com/images/webdevchecklist.png" />
+
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/images/apple-touch-icon-114x114-precomposed.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/images/apple-touch-icon-114x114-precomposed.png" />
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/images/apple-touch-icon-144x144-precomposed.png" />
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/images/apple-touch-icon-144x144-precomposed.png" />
 
@@ -50,30 +49,30 @@
         <title>@PageTitle - @DataName</title>
         <link rel="stylesheet" href="@Fingerprint.Tag("/sites/" + SiteName + "/Sections/" + Section + "/section.css")" />
     }
-    else { 
+    else
+    { 
         <title>@PageTitle</title>
     }
 
     <script src="/Scripts/modernizr-2.6.2.js"></script>
 </head>
 <body class="@Section.Replace(".", string.Empty).ToLowerInvariant()">
-    
+
     <header itemscope itemtype="http://schema.org/WebApplication">
         <h1 itemprop="name">@PageTitle</h1>
-        <a href="https://chrome.google.com/webstore/detail/web-developer-checklist/iahamcpedabephpcgkeikbclmaljebjp" target="_blank">Get the Chrome extension</a>    
-
         @if (DataName != Checklist.Title)
         { 
             <h2>@DataName.Replace("-", " ")</h2>            
         }
     </header>
-    
-    @if (Checklist.Docs[SiteName].Count > 1) {
+
+    @if (Checklist.Docs[SiteName].Count > 1)
+    {
         @RenderPage("~/views/_menu.cshtml", null);
     }
 
     <aside role="complementary">
-        <a href="https://github.com/ligershark/webdevchecklist.com">
+        <a href="https://github.com/bradygaster/windowsazurechecklist.com">
             <span class="ghFork"></span>
         </a>
     </aside>
@@ -91,16 +90,18 @@
 
     <script src="@Fingerprint.Tag("/scripts/script.min.js")" async="async"></script>
     <script>
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-37479788-1']);
-        _gaq.push(['_trackPageview']);
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-        (function () {
-            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-        })();
+        ga('create', 'UA-43487121-1', 'windowsazurechecklist.com');
+        ga('send', 'pageview');
     </script>
-<!-- @Request.QueryString["site"] -->    
+
+
+    <!-- @Request.QueryString["site"] -->
 </body>
 </html>
